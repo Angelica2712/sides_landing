@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SIDES · Sistema de despacho para droguerías</title>
+    <meta name="description" content="SIDES ordena el despacho de la droguería: monitor en vivo, picking y packing con lector, guías, rutas e informes por operario. Conectado con SEPED.">
+    <link rel="icon" type="image/png" href="img/favicon-sides.png">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+    <header class="barra" id="inicio">
+        <div class="ancho barra__fila">
+            <a class="marca" href="#inicio" aria-label="SIDES, inicio">
+                <img src="img/logo-sides.png" alt="" width="40" height="40">
+                <span class="marca__texto">SIDES<small>by FULLTECH360</small></span>
+            </a>
+
+            <button class="barra__menu" type="button" aria-expanded="false" aria-controls="navegacion" aria-label="Abrir menú">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+
+            <nav class="barra__nav" id="navegacion" aria-label="Secciones">
+                <a href="#flujo">Cómo funciona</a>
+                <a href="#modulos">Módulos</a>
+                <a href="#integracion">Integración</a>
+                <a href="#ventajas">Ventajas</a>
+                <a class="boton boton--claro" href="#contacto">Solicitar demostración</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido">
+        <!-- Portada -->
+        <section class="portada">
+            <div class="ancho portada__rejilla">
+                <div class="portada__texto">
+                    <p class="etiqueta">Sistema de despacho para droguerías</p>
+                    <h1>Cada pedido, del recibido al camión, <span>a la vista de todos</span>.</h1>
+                    <p class="portada__bajada">
+                        SIDES ordena el trabajo del almacén: quién toma cada pedido, qué falta por recoger,
+                        qué se está embalando y qué ya salió. En vivo, sin recargar la pantalla y sin planillas.
+                    </p>
+                    <div class="portada__acciones">
+                        <a class="boton boton--claro boton--grande" href="#contacto">Solicitar demostración</a>
+                        <a class="boton boton--borde boton--grande" href="#modulos">Ver módulos</a>
+                    </div>
+                    <ul class="portada__puntos">
+                        <li>Monitor en vivo</li>
+                        <li>Picking y packing con lector</li>
+                        <li>Conectado con SEPED</li>
+                    </ul>
+                </div>
+
+                <!-- Ilustración del monitor: datos de ejemplo, no son pedidos reales. -->
+                <figure class="monitor" aria-label="Ejemplo del monitor de pedidos de SIDES (datos de muestra)">
+                    <div class="monitor__barra">
+                        <span class="monitor__titulo">Pedidos en proceso</span>
+                        <span class="monitor__vivo"><i></i>En vivo</span>
+                    </div>
+                    <div class="monitor__cifras">
+                        <div><small>Alcabala</small><b>4</b></div>
+                        <div><small>Recibidos</small><b>18</b></div>
+                        <div><small>Picking</small><b>7</b></div>
+                        <div><small>Packing</small><b>5</b></div>
+                        <div class="es-verde"><small>Facturados hoy</small><b>62</b></div>
+                    </div>
+                    <div class="monitor__tablero">
+                        <div class="columna">
+                            <p class="columna__titulo"><i class="punto punto--gris"></i>Recibidos<span>18</span></p>
+                            <article class="tarjeta tarjeta--verde">
+                                <p class="tarjeta__ruta">Ruta norte <span class="chip chip--verde">12 min</span></p>
+                                <p class="tarjeta__numero">#20418</p>
+                                <p class="tarjeta__cliente">Farmacia Ejemplo Uno</p>
+                                <p class="tarjeta__pie">14 rengl. · 96 und.</p>
+                            </article>
+                            <article class="tarjeta tarjeta--ambar">
+                                <p class="tarjeta__ruta">Ruta centro <span class="chip chip--ambar">38 min</span></p>
+                                <p class="tarjeta__numero">#20411</p>
+                                <p class="tarjeta__cliente">Farmacia Ejemplo Dos</p>
+                                <p class="tarjeta__pie">6 rengl. · 40 und.</p>
+                            </article>
+                        </div>
+                        <div class="columna">
+                            <p class="columna__titulo"><i class="punto punto--ambar"></i>En picking<span>7</span></p>
+                            <article class="tarjeta tarjeta--verde">
+                                <p class="tarjeta__ruta">Ruta sur <span class="chip chip--verde">9 min</span></p>
+                                <p class="tarjeta__numero">#20402</p>
+                                <p class="tarjeta__cliente">Farmacia Ejemplo Tres</p>
+                                <p class="tarjeta__pie">22 rengl. · 180 und. <em>Rec. 115</em></p>
+                            </article>
+                            <article class="tarjeta tarjeta--roja">
+                                <p class="tarjeta__ruta">Ruta norte <span class="chip chip--roja">1 h 5 min</span></p>
+                                <p class="tarjeta__numero">#20389</p>
+                                <p class="tarjeta__cliente">Farmacia Ejemplo Cuatro</p>
+                                <p class="tarjeta__pie">31 rengl. · 264 und. <em>Rec. 087</em></p>
+                            </article>
+                        </div>
+                        <div class="columna">
+                            <p class="columna__titulo"><i class="punto punto--azul"></i>En packing<span>5</span></p>
+                            <article class="tarjeta tarjeta--verde">
+                                <p class="tarjeta__ruta">Ruta centro <span class="chip chip--verde">4 min</span></p>
+                                <p class="tarjeta__numero">#20377</p>
+                                <p class="tarjeta__cliente">Farmacia Ejemplo Cinco</p>
+                                <p class="tarjeta__pie">9 rengl. · 55 und. <em>Rec. 042</em></p>
+                            </article>
+                            <article class="tarjeta tarjeta--ambar">
+                                <p class="tarjeta__ruta">Ruta sur <span class="chip chip--ambar">27 min</span></p>
+                                <p class="tarjeta__numero">#20370</p>
+                                <p class="tarjeta__cliente">Farmacia Ejemplo Seis</p>
+                                <p class="tarjeta__pie">17 rengl. · 121 und. <em>Rec. 063</em></p>
+                            </article>
+                        </div>
+                    </div>
+                    <figcaption>Ilustración con datos de muestra.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Flujo -->
+        <section class="seccion" id="flujo">
+            <div class="ancho">
+                <p class="etiqueta etiqueta--azul">Cómo funciona</p>
+                <h2>El recorrido del pedido, paso a paso</h2>
+                <p class="seccion__bajada">Cada etapa tiene su pantalla y su responsable. El monitor muestra en qué va cada pedido y cuánto tiempo lleva ahí.</p>
+
+                <ol class="pasos">
+                    <li>
+                        <span class="pasos__numero">1</span>
+                        <h3>Llega desde SEPED</h3>
+                        <p>Cuando el pedido se aprueba en alcabala, aparece solo en SIDES como recibido. Nadie lo vuelve a cargar.</p>
+                    </li>
+                    <li>
+                        <span class="pasos__numero">2</span>
+                        <h3>Picking</h3>
+                        <p>Un operario toma el pedido, le asigna un recipiente y recoge los productos escaneándolos en el orden que le convenga.</p>
+                    </li>
+                    <li>
+                        <span class="pasos__numero">3</span>
+                        <h3>Packing</h3>
+                        <p>Otra persona verifica lo recogido, embala y deja el pedido listo, con sus bultos contados y etiquetados.</p>
+                    </li>
+                    <li>
+                        <span class="pasos__numero">4</span>
+                        <h3>Despacho</h3>
+                        <p>Los bultos se cargan al camión con su guía y su ruta, y se registra la entrega a cada cliente.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Escaneo -->
+        <section class="seccion seccion--noche" id="escaneo">
+            <div class="ancho escaneo">
+                <div class="escaneo__texto">
+                    <p class="etiqueta">Picking y packing con lector</p>
+                    <h2>Se escanea el producto y se registra solo</h2>
+                    <p class="seccion__bajada">
+                        El operario pasa el lector por el código de barras y SIDES marca el producto en el pedido.
+                        No hay que buscarlo en la lista ni tildar nada a mano.
+                    </p>
+                    <ul class="escaneo__puntos">
+                        <li><b>En cualquier orden.</b> Se escanea lo que se tenga a la mano; SIDES ubica el renglón.</li>
+                        <li><b>Avisa si algo no va.</b> Un producto que no es del pedido, o de más, no pasa.</li>
+                        <li><b>El avance se ve al momento.</b> Cuántos renglones van y cuántos faltan, sin contar.</li>
+                    </ul>
+                </div>
+
+                <!-- Ilustración del picking: productos y cantidades de muestra. -->
+                <figure class="lector" aria-label="Ejemplo de picking con lector en SIDES (datos de muestra)">
+                    <div class="lector__cabeza">
+                        <div>
+                            <small>Pedido en picking</small>
+                            <b>#20402</b>
+                        </div>
+                        <span class="lector__conteo"><b id="lector-hechos">0</b> de 5 renglones</span>
+                    </div>
+                    <div class="lector__barra"><i id="lector-avance"></i></div>
+
+                    <div class="lector__visor" id="lector-visor">
+                        <div class="lector__codigo" aria-hidden="true"></div>
+                        <span class="lector__rayo" aria-hidden="true"></span>
+                        <p class="lector__leido" id="lector-leido">Esperando lectura…</p>
+                    </div>
+
+                    <ul class="lector__lista" id="lector-lista">
+                        <li data-codigo="7591000000017"><span class="lector__marca"></span><span class="lector__nombre">Acetaminofén 500 mg × 20 tab</span><span class="lector__cant">12 und.</span></li>
+                        <li data-codigo="7591000000024"><span class="lector__marca"></span><span class="lector__nombre">Ibuprofeno 400 mg × 10 tab</span><span class="lector__cant">6 und.</span></li>
+                        <li data-codigo="7591000000031"><span class="lector__marca"></span><span class="lector__nombre">Loratadina 10 mg × 10 tab</span><span class="lector__cant">8 und.</span></li>
+                        <li data-codigo="7591000000048"><span class="lector__marca"></span><span class="lector__nombre">Omeprazol 20 mg × 14 cáp</span><span class="lector__cant">10 und.</span></li>
+                        <li data-codigo="7591000000055"><span class="lector__marca"></span><span class="lector__nombre">Suero oral 500 ml</span><span class="lector__cant">4 und.</span></li>
+                    </ul>
+                    <p class="lector__listo" id="lector-listo">Picking completo · pasa a packing</p>
+                    <figcaption>Ilustración con datos de muestra.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Módulos -->
+        <section class="seccion seccion--gris" id="modulos">
+            <div class="ancho">
+                <p class="etiqueta etiqueta--azul">Módulos</p>
+                <h2>Lo que trae SIDES</h2>
+                <p class="seccion__bajada">Cada droguería enciende los módulos que usa. Los permisos se dan por usuario.</p>
+
+                <div class="grupos">
+                    <div class="grupo">
+                        <h3>Operación</h3>
+                        <ul>
+                            <li><b>Monitor</b>Tablero o tabla con todos los pedidos en proceso, con semáforo de tiempo y filtros por ruta.</li>
+                            <li><b>Picking</b>Recolección por pedido con lector de códigos, recipiente asignado y posibilidad de liberar el pedido.</li>
+                            <li><b>Batch picking</b>Varios pedidos agrupados en un lote para recogerlos en una sola vuelta.</li>
+                            <li><b>Packing</b>Verificación y embalaje, con conteo de bultos.</li>
+                            <li><b>Etiquetas</b>Impresión de las etiquetas de cada bulto.</li>
+                        </ul>
+                    </div>
+                    <div class="grupo">
+                        <h3>Despacho</h3>
+                        <ul>
+                            <li><b>Guías</b>Guías de despacho y choferes.</li>
+                            <li><b>Carga y descarga</b>Control de los bultos que suben al camión y de su entrega al cliente.</li>
+                            <li><b>Rutas</b>Rutas y clientes por ruta, a mano o sincronizadas con SEPED.</li>
+                        </ul>
+                    </div>
+                    <div class="grupo">
+                        <h3>Consultas</h3>
+                        <ul>
+                            <li><b>Pedidos</b>Búsqueda y detalle de cualquier pedido.</li>
+                            <li><b>Resumen</b>La operación del día en una pantalla.</li>
+                            <li><b>Informes</b>Tiempos de picking y packing por operario.</li>
+                        </ul>
+                    </div>
+                    <div class="grupo">
+                        <h3>Ajustes</h3>
+                        <ul>
+                            <li><b>Usuarios y permisos</b>Cada persona ve solo los módulos que le tocan.</li>
+                            <li><b>Configuración</b>Parámetros de la sucursal: tamaño de letra del monitor, orden del picking y más.</li>
+                            <li><b>Auditoría</b>Registro de qué hizo cada usuario y cuándo.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Integración -->
+        <section class="seccion" id="integracion">
+            <div class="ancho integracion">
+                <div>
+                    <p class="etiqueta etiqueta--azul">Integración</p>
+                    <h2>Trabaja con lo que la droguería ya usa</h2>
+                    <p class="seccion__bajada">SIDES no es una isla: toma los pedidos de SEPED y avisa a los demás sistemas cuando algo cambia.</p>
+                </div>
+                <ul class="conexiones">
+                    <li>
+                        <h3>SEPED</h3>
+                        <p>Comparte la base de pedidos. Lo que se aprueba en SEPED aparece en SIDES al momento, y el estado vuelve a SEPED.</p>
+                    </li>
+                    <li>
+                        <h3>Sistema administrativo</h3>
+                        <p>El sistema de facturación baja los pedidos listos y devuelve los cambios de estado por una API.</p>
+                    </li>
+                    <li>
+                        <h3>Webhooks</h3>
+                        <p>Avisos firmados a otras aplicaciones cuando un pedido cambia de etapa, con reintentos si la otra parte falla.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Ventajas -->
+        <section class="seccion seccion--gris" id="ventajas">
+            <div class="ancho">
+                <p class="etiqueta etiqueta--azul">Ventajas</p>
+                <h2>Pensado para el almacén</h2>
+
+                <div class="ventajas">
+                    <article>
+                        <h3>En vivo de verdad</h3>
+                        <p>El monitor se actualiza en el instante en que un operario toma o termina un pedido. Sirve para una pantalla grande en el almacén.</p>
+                    </article>
+                    <article>
+                        <h3>Con la marca de la droguería</h3>
+                        <p>Cada droguería tiene su propia instalación, con su logo y sus colores.</p>
+                    </article>
+                    <article>
+                        <h3>En el teléfono también</h3>
+                        <p>Picking y packing se usan desde el teléfono o la tableta del operario, además de la computadora con lector.</p>
+                    </article>
+                    <article>
+                        <h3>Todo queda registrado</h3>
+                        <p>Quién tomó cada pedido, cuánto tardó y qué cambió. Los informes salen de ahí, sin anotar nada aparte.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section class="contacto" id="contacto">
+            <div class="ancho contacto__caja">
+                <div>
+                    <h2>¿Quieres verlo funcionando en tu droguería?</h2>
+                    <p>Escríbenos y coordinamos una demostración con tus propios pedidos de prueba.</p>
+                </div>
+                <div class="contacto__acciones">
+                    <a class="boton boton--whatsapp boton--grande" target="_blank" rel="noopener"
+                       href="https://wa.me/584246201502?text=Hola%2C%20quiero%20una%20demostraci%C3%B3n%20de%20SIDES">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2a9.9 9.9 0 0 0-8.57 14.86L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.73 1.21h.01a9.9 9.9 0 0 0 9.9-9.9 9.84 9.84 0 0 0-2.89-7.02Zm-7.01 15.24h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.22 8.22 0 1 1 6.98 3.86Zm4.51-6.16c-.25-.12-1.46-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.78.97-.14.16-.29.19-.54.06a6.75 6.75 0 0 1-1.99-1.23 7.5 7.5 0 0 1-1.38-1.72c-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.57.13.16 1.75 2.67 4.24 3.75.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29Z"/></svg>
+                        Escribir por WhatsApp
+                    </a>
+                    <p class="contacto__telefono">+58 424-6201502</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie">
+        <div class="ancho pie__fila">
+            <a class="marca marca--oscura" href="#inicio" aria-label="SIDES, inicio">
+                <img src="img/logo-sides.png" alt="" width="32" height="32">
+                <span class="marca__texto">SIDES<small>by FULLTECH360</small></span>
+            </a>
+            <p>© <span id="anio">2026</span> FULLTECH360. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menú del teléfono y año del pie.
+        (function () {
+            var boton = document.querySelector('.barra__menu');
+            var nav = document.getElementById('navegacion');
+
+            boton.addEventListener('click', function () {
+                var abierto = nav.classList.toggle('es-abierto');
+                boton.setAttribute('aria-expanded', abierto);
+            });
+            nav.addEventListener('click', function (evento) {
+                if (evento.target.tagName === 'A') {
+                    nav.classList.remove('es-abierto');
+                    boton.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            document.getElementById('anio').textContent = new Date().getFullYear();
+
+            var sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            // Lo que aparece al bajar: títulos y cajas de cada sección, las cajas en cascada.
+            var apareceran = Array.prototype.slice.call(
+                document.querySelectorAll('.seccion .etiqueta, .seccion h2, .seccion__bajada, .escaneo__puntos, .lector, .contacto__caja')
+            );
+
+            ['.pasos > li', '.grupos > .grupo', '.conexiones > li', '.ventajas > article'].forEach(function (selector) {
+                Array.prototype.forEach.call(document.querySelectorAll(selector), function (caja, i) {
+                    caja.style.setProperty('--retraso', (i * 110) + 'ms');
+                    apareceran.push(caja);
+                });
+            });
+
+            apareceran.forEach(function (el) { el.classList.add('aparece'); });
+
+            // es-lista llega cuando terminó de aparecer: desde ahí la caja responde al cursor.
+            function mostrar(el) {
+                el.classList.add('es-visible');
+                setTimeout(function () { el.classList.add('es-lista'); }, sinMovimiento ? 0 : 1300);
+            }
+
+            if (sinMovimiento || !('IntersectionObserver' in window)) {
+                apareceran.forEach(mostrar);
+            } else {
+                var observador = new IntersectionObserver(function (entradas) {
+                    entradas.forEach(function (entrada) {
+                        if (entrada.isIntersecting) {
+                            mostrar(entrada.target);
+                            observador.unobserve(entrada.target);
+                        }
+                    });
+                }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+                apareceran.forEach(function (el) { observador.observe(el); });
+            }
+
+            // Picking de muestra: los productos se "escanean" en desorden y se marcan solos.
+            (function () {
+                var filas = Array.prototype.slice.call(document.querySelectorAll('#lector-lista li'));
+                var visor = document.getElementById('lector-visor');
+                var leido = document.getElementById('lector-leido');
+                var hechos = document.getElementById('lector-hechos');
+                var avance = document.getElementById('lector-avance');
+                var listo = document.getElementById('lector-listo');
+                var orden = [2, 0, 4, 1, 3];
+                var paso = 0;
+
+                function pintar() {
+                    hechos.textContent = paso;
+                    avance.style.width = (paso / filas.length * 100) + '%';
+                    listo.classList.toggle('es-visible', paso === filas.length);
+                }
+
+                function escanear() {
+                    if (paso === filas.length) {
+                        filas.forEach(function (fila) { fila.className = ''; });
+                        paso = 0;
+                        leido.textContent = 'Esperando lectura…';
+                        pintar();
+
+                        return;
+                    }
+
+                    var fila = filas[orden[paso]];
+
+                    filas.forEach(function (otra) { otra.classList.remove('es-reciente'); });
+                    fila.classList.add('es-hecho', 'es-reciente');
+                    leido.textContent = fila.dataset.codigo + ' · ' + fila.querySelector('.lector__nombre').textContent;
+                    visor.classList.remove('es-lectura');
+                    void visor.offsetWidth;
+                    visor.classList.add('es-lectura');
+                    paso++;
+                    pintar();
+                }
+
+                if (sinMovimiento) {
+                    // Sin movimiento: se deja a medio camino, que es lo que la ilustración quiere contar.
+                    escanear(); escanear(); escanear();
+
+                    return;
+                }
+
+                pintar();
+                setInterval(escanear, 1700);
+            })();
+
+            if (sinMovimiento) {
+                return;
+            }
+
+            // Monitor de muestra: las cifras suben desde cero y luego "pasa algo" cada pocos segundos.
+            var cifras = document.querySelectorAll('.monitor__cifras b');
+            var tarjetas = document.querySelectorAll('.monitor .tarjeta');
+
+            Array.prototype.forEach.call(cifras, function (cifra) {
+                var meta = parseInt(cifra.textContent, 10);
+
+                var inicio = Date.now() + 500;
+
+                cifra.dataset.valor = meta;
+                cifra.textContent = '0';
+
+                // Con reloj y no con requestAnimationFrame: así termina aunque la pestaña esté en segundo plano.
+                var reloj = setInterval(function () {
+                    var avance = Math.min((Date.now() - inicio) / 1100, 1);
+
+                    cifra.textContent = Math.round(meta * Math.max(avance, 0));
+                    if (avance >= 1) {
+                        clearInterval(reloj);
+                    }
+                }, 40);
+            });
+
+            var turno = 0;
+            setInterval(function () {
+                var tarjeta = tarjetas[turno % tarjetas.length];
+                var facturados = cifras[cifras.length - 1];
+
+                tarjeta.classList.add('es-activa');
+                setTimeout(function () { tarjeta.classList.remove('es-activa'); }, 1400);
+
+                if (turno % 2 === 1) {
+                    facturados.dataset.valor = parseInt(facturados.dataset.valor, 10) + 1;
+                    facturados.textContent = facturados.dataset.valor;
+                    facturados.classList.remove('es-salto');
+                    void facturados.offsetWidth;
+                    facturados.classList.add('es-salto');
+                }
+
+                turno++;
+            }, 2600);
+        })();
+    </script>
+</body>
+</html>
